@@ -100,6 +100,7 @@ export function callResponse(message, webRtcPeer) {
     setTimeout(() => {
       if (webRtcPeer) {
         webRtcPeer.processAnswer(message.sdpAnswer);
+        console.log("Processed sucessfulyy");
       }
     }, 3000);
     console.log(webRtcPeer, "is still null");
