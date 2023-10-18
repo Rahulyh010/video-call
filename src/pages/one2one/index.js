@@ -102,7 +102,7 @@ export function callResponse(message, webRtcPeer) {
         webRtcPeer.processAnswer(message.sdpAnswer);
         console.log("Processed sucessfulyy");
       }
-    }, 3000);
+    }, 5000);
     console.log(webRtcPeer, "is still null");
   }
 }
@@ -175,7 +175,7 @@ export function startCommunication(message, webRtcPeer) {
       webRtcPeer.processAnswer(message.sdpAnswer);
       console.log("Answered");
     }
-  }, 2000);
+  }, 3000);
   console.log("Error at Communicating");
   return;
 }
