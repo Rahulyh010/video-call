@@ -84,7 +84,7 @@ export function register(name) {
   sendMessage(message);
 }
 
-export function callResponse(message, webRtcPeer) {
+export async function callResponse(message, webRtcPeer) {
   console.log("Response");
   if (message.response !== "accepted") {
     console.info("Call not accepted by peer. Closing call");
@@ -97,12 +97,6 @@ export function callResponse(message, webRtcPeer) {
     if (webRtcPeer) {
       webRtcPeer.processAnswer(message.sdpAnswer);
     }
-    setTimeout(() => {
-      if (webRtcPeer) {
-        webRtcPeer.processAnswer(message.sdpAnswer);
-        console.log("Processed sucessfulyy");
-      }
-    }, 5000);
     console.log(webRtcPeer, "is still null");
   }
 }
@@ -170,12 +164,7 @@ export function startCommunication(message, webRtcPeer) {
   if (message && webRtcPeer) {
     webRtcPeer.processAnswer(message.sdpAnswer);
   }
-  setTimeout(() => {
-    if (webRtcPeer) {
-      webRtcPeer.processAnswer(message.sdpAnswer);
-      console.log("Answered");
-    }
-  }, 3000);
+
   console.log("Error at Communicating");
   return;
 }
