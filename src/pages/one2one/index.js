@@ -97,6 +97,11 @@ export function callResponse(message, webRtcPeer) {
     if (webRtcPeer) {
       webRtcPeer.processAnswer(message.sdpAnswer);
     }
+    setTimeout(() => {
+      if (webRtcPeer) {
+        webRtcPeer.processAnswer(message.sdpAnswer);
+      }
+    }, 3000);
     console.log(webRtcPeer, "is still null");
   }
 }
