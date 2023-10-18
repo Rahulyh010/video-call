@@ -170,6 +170,12 @@ export function startCommunication(message, webRtcPeer) {
   if (message && webRtcPeer) {
     webRtcPeer.processAnswer(message.sdpAnswer);
   }
+  setTimeout(() => {
+    if (webRtcPeer) {
+      webRtcPeer.processAnswer(message.sdpAnswer);
+      console.log("Answered");
+    }
+  }, 2000);
   console.log("Error at Communicating");
   return;
 }
